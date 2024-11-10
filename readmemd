@@ -1,0 +1,5 @@
+## Aplicativo de autenticação de usuários
+
+A aplicação verifica se o usuario forneceu os dados corretos
+se sim, autentica o usuário, caso contrario, pede para que o usuario corrija
+e tente novamente.
