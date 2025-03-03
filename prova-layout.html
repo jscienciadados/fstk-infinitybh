@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox e Caixas</title>
+  <style>
+    .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que o contêiner ocupa toda a altura da tela */
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    display: flex; /* Adiciona Flexbox para centralizar o texto dentro da caixa */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box1 {
+    background-color: #f0f0f0;
+  }
+  
+  .box2 {
+    background-color: #e0e0e0;
+  }
+  
+  .box3 {
+    background-color: #d0d0d0;
+  }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="box box1">Caixa 1</section>
+    <section class="box box2">Caixa 2</section>
+    <section class="box box3">Caixa 3</section>
+  </main>
+</body>
+</html>
