@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Iterativo com While, For e For...of</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            background-color: #f4f4f4;
+        }
+
+        #entrada-area {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #resultados {
+            background-color: #e0f7fa;
+            border: 1px solid #b2ebf2;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h2 {
+            color: #00897b;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .indexado {
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        .saudacao {
+            color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div id="entrada-area">
+        <h2>Coleta de Nomes</h2>
+        <p>Digite os nomes um por um. Digite "sair" para finalizar.</p>
+    </div>
+
+    <div id="resultados">
+        <h2>Resultados:</h2>
+        <div id="nomes-indexados">
+            <h3>Nomes com Índices:</h3>
+            <ul id="lista-indexada"></ul>
+        </div>
+        <div id="nomes-saudacoes">
+            <h3>Saudações:</h3>
+            <ul id="lista-saudacoes"></ul>
+        </div>
+    </div>
+
+    <script>
+        const nomes = [];
+        const listaIndexada = document.getElementById('lista-indexada');
+        const listaSaudacoes = document.getElementById('lista-saudacoes');
+
+        while (true) {
+            const entrada = prompt("Digite um nome (ou 'sair'):");
+            if (entrada === null || entrada.toLowerCase() === "sair") {
+                break;
+            }
+            nomes.push(entrada);
+        }
+
+        // Processamento com for para exibir com índices
+        if (nomes.length > 0) {
+            const nomesIndexadosDiv = document.getElementById('nomes-indexados');
+            nomesIndexadosDiv.style.display = 'block'; // Exibe a seção se houver nomes
+
+            for (let i = 0; i < nomes.length; i++) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${i + 1}: ${nomes[i]}`;
+                listItem.classList.add('indexado');
+                listaIndexada.appendChild(listItem);
+            }
+        } else {
+            const nomesIndexadosDiv = document.getElementById('nomes-indexados');
+            nomesIndexadosDiv.style.display = 'none'; // Oculta a seção se não houver nomes
+        }
+
+
+        // Exibição com for...of para exibir saudações
+        if (nomes.length > 0) {
+            const nomesSaudacoesDiv = document.getElementById('nomes-saudacoes');
+            nomesSaudacoesDiv.style.display = 'block'; // Exibe a seção se houver nomes
+
+            for (const nome of nomes) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Bem-vindo(a), ${nome}!`;
+                listItem.classList.add('saudacao');
+                listaSaudacoes.appendChild(listItem);
+            }
+        } else {
+            const nomesSaudacoesDiv = document.getElementById('nomes-saudacoes');
+            nomesSaudacoesDiv.style.display = 'none'; // Oculta a seção se não houver nomes
+        }
+    </script>
+</body>
+</html>
