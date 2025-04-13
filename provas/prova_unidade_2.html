@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Classificação de Usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            background-color: #f4f4f4;
+        }
+
+        #mensagem-idade, #mensagem-status, #mensagem-acesso {
+            background-color: #e0f7fa;
+            border: 1px solid #b2ebf2;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .rodape {
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="mensagem-idade"></div>
+    <div id="mensagem-status"></div>
+    <div id="mensagem-acesso"></div>
+
+    <div class="rodape">
+        <p>Autor: João Souza</p>
+        <p>&copy; Copyright Fullstack Infinity 2025</p>
+        <p>Desenvolvido em 2025</p>
+    </div>
+
+    <script>
+        // Solicita a idade do usuário
+        const idadeString = prompt("Digite sua idade:");
+        const idade = parseInt(idadeString);
+
+        // Solicita o status de registro do usuário
+        const status = prompt("Digite seu status de registro (registrado ou não registrado):").toLowerCase();
+
+        // Elementos para exibir as mensagens
+        const mensagemIdadeDiv = document.getElementById("mensagem-idade");
+        const mensagemStatusDiv = document.getElementById("mensagem-status");
+        const mensagemAcessoDiv = document.getElementById("mensagem-acesso");
+
+        // Operador ternário para verificar se é maior de idade
+        const maiorDeIdade = idade >= 18 ? "Maior de idade" : "Menor de idade";
+        mensagemIdadeDiv.textContent = `Você é: ${maiorDeIdade}.`;
+
+        // Estrutura switch para exibir mensagem baseada no status
+        let mensagemStatus = "";
+        switch (status) {
+            case "registrado":
+                mensagemStatus = "Bem-vindo(a)!";
+                break;
+            case "não registrado":
+                mensagemStatus = "Por favor, complete seu registro para ter acesso completo.";
+                break;
+            default:
+                mensagemStatus = "Status desconhecido.";
+        }
+        mensagemStatusDiv.textContent = `Status de registro: ${status} - ${mensagemStatus}`;
+
+        // Operadores lógicos para verificar o acesso
+        let mensagemAcesso = "";
+        if (idade >= 18 && status === "registrado") {
+            mensagemAcesso = "Acesso completo concedido.";
+        } else {
+            mensagemAcesso = "Acesso limitado.";
+        }
+        mensagemAcessoDiv.textContent = `Nível de acesso: ${mensagemAcesso}`;
+    </script>
+</body>
+</html>
