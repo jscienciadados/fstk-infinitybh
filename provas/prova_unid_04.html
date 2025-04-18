@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .menu {
+            margin-bottom: 20px;
+        }
+
+        .menu button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu button:hover {
+            background-color: #45a049;
+        }
+
+        .item-list {
+            margin-top: 20px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .item span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Compras</h1>
+        
+        <div class="menu">
+            <input type="text" id="newItemInput" placeholder="Digite um item...">
+            <button onclick="adicionarItem()">Adicionar Item</button>
+            <button onclick="removerItem()">Remover Item</button>
+            <button onclick="atualizarItem()">Atualizar Item</button>
+        </div>
+
+        <div id="listaItens" class="item-list"></div>
+    </div>
+
+    <script>
+        let listaDeCompras = [];
+
+        // Função para adicionar itens à lista
+        function adicionarItem() {
+            const input = document.getElementById('newItemInput');
+            const item = input.value.trim();
+            
+            if (item !== '') {
+                listaDeCompras.push(item);
+                input.value = '';
+                atualizarExibicao();
+            } else {
+                alert('Por favor, digite um item válido!');
+            }
+        }
+
+        // Função para remover itens da lista
+        function removerItem() {
+            const indice = prompt('Digite o índice do item a ser removido:');
+            
+            if (indice !== null && !isNaN(indice) && indice >= 0 && indice < listaDeCompras.length) {
+                listaDeCompras.splice(parseInt(indice), 1);
+                atualizarExibicao();
+            } else {
+                alert('Índice inválido!');
+            }
+        }
+
+        // Função para atualizar itens da lista
+        function atualizarItem() {
+            const indice = prompt('Digite o índice do item a ser atualizado:');
+            
+            if (indice !== null && !isNaN(indice) && indice >= 0 && indice < listaDeCompras.length) {
+                const novoValor = prompt('Digite o novo valor:');
+                
+                if (novoValor !== null && novoValor.trim() !== '') {
+                    listaDeCompras[parseInt(indice)] = novoValor.trim();
+                    atualizarExibicao();
+                } else {
+                    alert('Novo valor inválido!');
+                }
+            } else {
+                alert('Índice inválido!');
+            }
+        }
+
+        // Função para atualizar a exibição da lista
+        function atualizarExibicao() {
+            const listaElement = document.getElementById('listaItens');
+            listaElement.innerHTML = '';
+
+            for (const [indice, item] of listaDeCompras.entries()) {
+                const divItem = document.createElement('div');
+                divItem.className = 'item';
+                divItem.innerHTML = `
+                    <span>${indice}: ${item}</span>
+                `;
+                listaElement.appendChild(divItem);
+            }
+        }
+    </script>
+</body>
+</html>
