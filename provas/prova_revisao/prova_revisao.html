@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1 class="main-title">Lista de Tarefas</h1>
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#adicionar" class="nav-link">Adicionar</a></li>
+                <li class="nav-item"><a href="#listar" class="nav-link">Listar</a></li>
+                <li class="nav-item"><a href="#remover" class="nav-link">Remover</a></li>
+                <li class="nav-item"><a href="#concluir" class="nav-link">Concluir</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="adicionar" class="task-section">
+            <h2>Adicionar Tarefa</h2>
+            <input type="text" id="novaTarefa" placeholder="Digite a nova tarefa">
+            <button id="adicionarBtn">Adicionar</button>
+        </section>
+
+        <section id="listar" class="task-section">
+            <h2>Lista de Tarefas</h2>
+            <ul id="listaDeTarefas">
+                </ul>
+        </section>
+
+        <section id="remover" class="task-section">
+            <h2>Remover Tarefa</h2>
+            <input type="number" id="indiceRemover" placeholder="Digite o índice para remover">
+            <button id="removerBtn">Remover</button>
+        </section>
+
+        <section id="concluir" class="task-section">
+            <h2>Concluir Tarefa</h2>
+            <input type="number" id="indiceConcluir" placeholder="Digite o índice para concluir">
+            <button id="concluirBtn">Concluir</button>
+        </section>
+
+        <div id="mensagem" class="message-area" aria-live="polite">
+            </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Gerenciador de Tarefas</p>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
