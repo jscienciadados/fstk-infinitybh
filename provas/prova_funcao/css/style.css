@@ -1,0 +1,77 @@
+/* Estilos gerais */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecalho__titulo {
+    margin: 0;
+}
+
+/* Menu de navegação */
+.cabecalho__menu {
+    /* Sem estilos específicos por enquanto */
+}
+
+.menu__lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.lista__item {
+    margin-left: 1em;
+}
+
+.lista__item:first-child {
+    margin-left: 0;
+}
+
+.item__link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.item__link:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+.principal {
+    padding: 2em;
+    text-align: center;
+}
+
+.principal__descricao {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Rodapé */
+.rodape {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.rodape__texto {
+    margin: 0;
+    font-size: 0.9em;
+}
