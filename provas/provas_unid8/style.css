@@ -1,0 +1,225 @@
+/* Variáveis CSS para cores e fontes */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --light-bg: #f8f9fa;
+    --dark-text: #343a40;
+    --border-color: #dee2e6;
+    --card-bg: #ffffff;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos gerais */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header nav {
+    margin-top: 1rem;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--warning-color);
+}
+
+/* Conteúdo principal */
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Cartões (seções) */
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Formulários e Inputs */
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    margin-bottom: 0;
+}
+
+.input-group input {
+    flex-grow: 1;
+    margin-bottom: 0; /* Remove margin bottom for input in group */
+}
+
+/* Botões */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start; /* Alinha o botão à esquerda dentro do card */
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Áreas de resultado e mensagens */
+.result-area {
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    min-height: 50px; /* Garante um tamanho mínimo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.result-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.result-list li {
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message {
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: var(--success-color);
+    border-color: #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: var(--danger-color);
+    border-color: #f5c6cb;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: var(--dark-text);
+    color: white;
+    margin-top: 2rem;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header nav a {
+        margin: 0 10px;
+    }
+
+    main {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .input-group {
+        flex-direction: column; /* Pilha inputs e botão em telas pequenas */
+        align-items: stretch;
+    }
+
+    .input-group input, .input-group button {
+        width: 100%;
+    }
+}
