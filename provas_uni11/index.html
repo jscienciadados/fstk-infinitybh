@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Eventos DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Usuário</h1>
+        <form id="cadastroForm">
+            <div class="form-group">
+                <label for="nomeUsuario">Nome de Usuário:</label>
+                <input type="text" id="nomeUsuario" name="nomeUsuario" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" placeholder="Ex: 11987654321" required>
+            </div>
+            <div class="form-group">
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit">Enviar Cadastro</button>
+            <button type="button" id="resetFormulario">Limpar Formulário</button>
+        </form>
+
+        <hr>
+
+        <h2>Usuários Cadastrados</h2>
+        <button id="limparLista">Limpar Lista</button>
+        <ul id="listaUsuarios">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
