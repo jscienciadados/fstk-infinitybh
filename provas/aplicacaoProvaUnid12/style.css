@@ -1,0 +1,168 @@
+/* Reset Básico e Box-Sizing para Responsividade */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    flex-grow: 1; /* Permite que o main ocupe o espaço restante */
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    width: 100%; /* Garante que o main se ajuste em telas pequenas */
+}
+
+section {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px; /* Espaçamento entre input e botão */
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="text"] {
+    flex-grow: 1; /* O input cresce para ocupar o espaço */
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    min-width: 150px; /* Largura mínima para o input */
+}
+
+button {
+    padding: 0.8rem 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.notes-container {
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0;
+}
+
+.notes-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    word-break: break-word; /* Garante que o texto longo quebre a linha */
+}
+
+.notes-container li button {
+    background-color: #f44336; /* Cor vermelha para o botão remover */
+    margin-left: 15px; /* Espaço entre o texto da nota e o botão */
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    flex-shrink: 0; /* Impede o botão de encolher */
+}
+
+.notes-container li button:hover {
+    background-color: #da190b;
+}
+
+.message-info {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0f2f7;
+    border-left: 5px solid #2196f3;
+    border-radius: 4px;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: white;
+    margin-top: auto; /* Empurra o footer para a parte inferior */
+}
+
+/* Utilitário para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column; /* Empilha input e botão em telas menores */
+    }
+
+    input[type="text"] {
+        width: 100%; /* Ocupa a largura total */
+        margin-right: 0;
+        margin-bottom: 10px; /* Espaço entre input e botão empilhados */
+    }
+
+    button {
+        width: 100%; /* Botão ocupa a largura total */
+    }
+
+    .notes-container li {
+        flex-direction: column; /* Empilha texto da nota e botão em telas menores */
+        align-items: flex-start; /* Alinha o texto à esquerda */
+    }
+
+    .notes-container li button {
+        margin-top: 10px; /* Espaço acima do botão remover */
+        margin-left: 0; /* Remove margem lateral */
+        width: 100%;
+    }
+}

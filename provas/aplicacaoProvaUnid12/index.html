@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Notas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciador de Notas Simples</h1>
+    </header>
+
+    <main>
+        <section class="note-input-section">
+            <h2>Adicionar Nova Nota</h2>
+            <div class="input-group">
+                <label for="noteTitle" class="sr-only">Título da Nota</label>
+                <input type="text" id="noteTitle" placeholder="Digite o título da nota" aria-label="Título da Nota">
+                <button id="addNoteButton" type="button">Adicionar Nota</button>
+            </div>
+        </section>
+
+        <section class="note-list-section">
+            <h2>Minhas Notas</h2>
+            <ul id="notesList" class="notes-container">
+                </ul>
+            <p id="noNotesMessage" class="message-info" style="display: none;">Nenhuma nota cadastrada. Adicione sua primeira nota!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Gerenciador de Notas. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
